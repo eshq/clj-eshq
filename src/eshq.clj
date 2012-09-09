@@ -19,7 +19,9 @@
 
 (defn- post [path params]
   (http/post (url-for path)
-      {:form-params (merge params (credentials)) :as :json}))
+      {:form-params (merge params (credentials))
+       :as :json
+       :insecure? true}))
 
 ;; API Methods
 (defn open [params]
